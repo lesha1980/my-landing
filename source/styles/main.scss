@@ -1,0 +1,19 @@
+@import "../../node_modules/font-awesome/scss/font-awesome";
+@import "../../node_modules/normalize.scss/normalize";
+
+
+//----------link global------------------
+
+@import 'global/fonts';
+@import 'global/var';
+@import 'global/sprite';
+@import 'global/mixins';
+@import 'global/base';
+@import 'global/common';
+@import 'global/button';
+
+//----------link sections----------------
+
+@import 'sections/header';
+@import 'sections/nav';
+

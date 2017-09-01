@@ -58,14 +58,14 @@ gulp.task('clean', function del(cb){
 //-----------------Copy Fonts---------------------------------//
 
 gulp.task('copy:fonts', function(){
-    return gulp.src('.source/fonts/**/*.*')
+    return gulp.src('./source/fonts/**/*.*')
     .pipe(gulp.dest('build/fonts'));
 });
 
 //-----------------Copy Images---------------------------------//
 
 gulp.task('copy:images', function(){
-    return gulp.src('.source/images/**/*.*')
+    return gulp.src('./source/images/**/*.*')
     .pipe(gulp.dest('build/images'));
 });
 
