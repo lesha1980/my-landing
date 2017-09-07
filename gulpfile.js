@@ -5,6 +5,9 @@ var sass = require('gulp-sass');
 var spritesmith = require('gulp.spritesmith');
 var rimraf = require('rimraf');
 var rename = require('gulp-rename');
+var uglify = require('gulp-uglify'); 
+var concat = require('gulp-concat');
+var sourcemaps = require('gulp-sourcemaps');
 
 //--------------- Static server----------------------//
 gulp.task('server', function() {
