@@ -30,6 +30,19 @@ gulp.task('templates:compile', function buildHTML() {
   .pipe(gulp.dest('build'))
 });
 
+gulp.task('js', function(){
+     return gulp.src(
+         [
+             'source/js/main.js',
+             'source/js/form.js'
+         ]
+     )
+     .pipe(sourcemaps.init())
+     .pipe(concat('main.min.js'))
+     .pipe(uglify())
+     .pipe(sourcemaps.write())
+     .pipe(gulp.dest('build/js'));
+});
 //-------------------Style Compile----------------------------//
 
 gulp.task('styles:compile', function () {
@@ -80,13 +93,14 @@ gulp.task('copy', gulp.parallel('copy:fonts', 'copy:images'));
 
 gulp.task('watch', function(){
     gulp.watch('source/templates/**/*.pug', gulp.series('templates:compile'));
-    gulp.watch('source/styles/**/*.scss', gulp.series('styles:compile'))
+    gulp.watch('source/styles/**/*.scss', gulp.series('styles:compile'));
+    gulp.watch('source/js/**/*.js', gulp.series('js'));
 });
 
 //------------------Default-------------------------------------//
 
 gulp.task('default', gulp.series(
     'clean',
-    gulp.parallel('templates:compile', 'styles:compile', 'sprite', 'copy'),
+    gulp.parallel('templates:compile', 'styles:compile', 'js' ,'sprite', 'copy'),
     gulp.parallel('watch', 'server')
 ));
